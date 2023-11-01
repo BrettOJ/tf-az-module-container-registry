@@ -63,12 +63,12 @@ dynamic "network_rule_set"  {
     content {
       default_action = var.network_rule_set.network_rule_set_default_action
       ip_rule        = {
-          action   = var.network_rule_set.ip_rule_action
-          ip_range = var.network_rule_set.ip_rule_ip_range
+          action   = var.network_rule_set.network_rule_set_default_action.ip_rule.ip_rule_action
+          ip_range = var.network_rule_set.network_rule_set_default_action.ip_rule.ip_rule_ip_range
       }
       virtual_network =  {
-          action    = var.network_rule_set.virtual_network_action
-          subnet_id = var.network_rule_set.virtual_network_subnet_id
+          action    = var.network_rule_set.network_rule_set_default_action.virtual_network.virtual_network_action
+          subnet_id = var.network_rule_set.network_rule_set_default_action.virtual_network.virtual_network_subnet_id
       }
   }
 }
