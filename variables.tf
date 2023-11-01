@@ -105,9 +105,9 @@ variable "network_rule_bypass_option" {
 
 variable "encryption" {
   type = object({
-    encryption_enabled         = bool
-    encryption_key_vault_key_id = string
-    encryption_identity_client_id = string
+    enabled         = bool
+    key_vault_key_id = string
+    identity_client_id = string
   })
   default = null
   description = "(Optional) Enable or Disable encryption for the container registry. Defaults to false."
@@ -115,8 +115,8 @@ variable "encryption" {
 
 variable "retention_policy" {
   type = object({
-    retention_policy_days    = number
-    retention_policy_enabled = bool
+    days    = number
+    enabled = bool
   })
   default = null
   description = "(Optional) Enable or Disable retention policy for the container registry. Defaults to false."
@@ -124,8 +124,8 @@ variable "retention_policy" {
 
 variable "identity" {
   type = object({
-    identity_type = string
-    identity_ids  = list(string)
+    type = string
+    ids  = list(string)
   })
   default = null
   description = "(Optional) Enable or Disable identity for the container registry. Defaults to false."
@@ -133,7 +133,7 @@ variable "identity" {
 
 variable "trust_policy" {
   type = object({
-    trust_policy_enabled = bool
+    enabled = bool
   })
   default = null
   description = "(Optional) Enable or Disable trust policy for the container registry. Defaults to false."
@@ -141,9 +141,9 @@ variable "trust_policy" {
 
 variable "georeplications" {
   type = object({
-    georeplications_location = string
-    georeplications_regional_endpoint_enabled = bool
-    georeplicationszone_redundancy_enabled = bool
+    location = string
+    regional_endpoint_enabled = bool
+    redundancy_enabled = bool
   })
   default = null
   description = "(Optional) Enable or Disable georeplications for the container registry. Defaults to false."
@@ -151,7 +151,7 @@ variable "georeplications" {
 
 variable "network_rule_set" {
   type = object({
-    network_rule_set_default_action = string
+    default_action = string
     ip_rule_action                  = string
     ip_rule_ip_range                = string
     virtual_network_action          = string
