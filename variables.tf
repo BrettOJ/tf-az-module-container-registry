@@ -143,7 +143,7 @@ variable "georeplications" {
   type = object({
     location = string
     regional_endpoint_enabled = bool
-    redundancy_enabled = bool
+    zone_redundancy_enabled = bool
   })
   default = null
   description = "(Optional) Enable or Disable georeplications for the container registry. Defaults to false."
