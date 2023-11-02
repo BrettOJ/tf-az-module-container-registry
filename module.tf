@@ -44,7 +44,7 @@ dynamic "identity"  {
     for_each = var.identity != null ? [var.identity] : []
     content {
       type = var.identity.type
-      identity_ids = [var.identity.ids]
+      identity_ids = var.identity.ids
   }
 }
 
