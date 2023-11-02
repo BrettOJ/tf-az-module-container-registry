@@ -44,7 +44,7 @@ dynamic "identity"  {
     for_each = var.identity != null ? [var.identity] : []
     content {
       type = var.identity.identity_type
-      identity_ids = [module.azure_msi.msi_output.id]
+      identity_ids = [var.identity.identity_ids]
   }
 }
 
