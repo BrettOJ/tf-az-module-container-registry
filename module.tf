@@ -52,8 +52,8 @@ dynamic "georeplications"  {
     for_each = var.georeplications != null ? [var.georeplications] : []
     content {
       location = var.georeplications.georeplications_location
-      regional_endpoint_enabled = var.georeplications.georeplications_regional_endpoint_enabled
-      zone_redundancy_enabled = var.georeplications.georeplications_zone_redundancy_enabled
+      regional_endpoint_enabled = var.georeplications.regional_endpoint_enabled
+      zone_redundancy_enabled = var.georeplications.zone_redundancy_enabled
   }
 
 }
