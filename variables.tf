@@ -152,10 +152,14 @@ variable "georeplications" {
 variable "network_rule_set" {
   type = object({
     default_action = string
-    ip_rule_action                  = string
-    ip_rule_ip_range                = string
-    virtual_network_action          = string
-    virtual_network_subnet_id       = string
+    ip_rule = object({
+      action   = string
+      ip_range = string
+    })
+    virtual_network = object({
+      action    = string
+      subnet_id = string
+    })
   })
   default = null
   description = "(Optional) Enable or Disable network rule set for the container registry. Defaults to false."
