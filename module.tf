@@ -19,23 +19,23 @@ resource "azurerm_container_registry" "acr_obj" {
   dynamic "encryption"  {
     for_each = var.encryption != null ? [var.encryption] : [] 
     content {
-      enabled            = var.encryption.encryption_enabled
-      key_vault_key_id   = var.encryption.encryption_key_vault_key_id
-      identity_client_id = var.encryption.encryption_identity_client_id
+      enabled            = var.encryption.enabled
+      key_vault_key_id   = var.encryption.key_vault_key_id
+      identity_client_id = var.encryption.identity_client_id
   }
   }
  dynamic "retention_policy"  {
     for_each = var.retention_policy != null ? [var.retention_policy] : []
     content {
-      days    = var.retention_policy.retention_policy_days
-      enabled = var.retention_policy.retention_policy_enabled
+      days    = var.retention_policy.days
+      enabled = var.retention_policy.enabled
   }
  }
 
 dynamic "trust_policy"  {
     for_each = var.trust_policy != null ? [var.trust_policy] : []
     content {
-      enabled = var.trust_policy.trust_policy_enabled
+      enabled = var.trust_policy.enabled
   }
 
 }
@@ -43,7 +43,7 @@ dynamic "trust_policy"  {
 dynamic "identity"  {
     for_each = var.identity != null ? [var.identity] : []
     content {
-      type = var.identity.identity_type
+      type = var.identity.type
       identity_ids = [var.identity.identity_ids]
   }
 }
@@ -51,7 +51,7 @@ dynamic "identity"  {
 dynamic "georeplications"  {
     for_each = var.georeplications != null ? [var.georeplications] : []
     content {
-      location = var.georeplications.georeplications_location
+      location = var.georeplications.location
       regional_endpoint_enabled = var.georeplications.regional_endpoint_enabled
       zone_redundancy_enabled = var.georeplications.zone_redundancy_enabled
   }
