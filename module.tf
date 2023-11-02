@@ -53,7 +53,7 @@ dynamic "georeplications"  {
     content {
       location = var.georeplications.georeplications_location
       regional_endpoint_enabled = var.georeplications.georeplications_regional_endpoint_enabled
-      zone_redundancy_enabled = var.georeplications.georeplicationszone_redundancy_enabled
+      zone_redundancy_enabled = var.georeplications.georeplications_zone_redundancy_enabled
   }
 
 }
