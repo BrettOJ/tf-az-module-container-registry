@@ -13,7 +13,7 @@ variable "location" {
 variable "sku" {
   description = "(Required)specify the sku for the acr (Basic, Standard and Premium)"
   type        = string
-  default = "Basic"
+  default     = "Basic"
 }
 
 variable "allowed_subnets" {
@@ -33,7 +33,7 @@ variable "diag_object" {
   description = "contains the logs and metrics for diagnostics"
   type = object({
     log_analytics_workspace_id = string
-    log                        = list(tuple([string, bool, bool, number]))
+    enabled_log                = list(tuple([string, bool, bool, number]))
     metric                     = list(tuple([string, bool, bool, number]))
   })
 }
@@ -62,54 +62,54 @@ variable "admin_enabled" {
 }
 
 variable "public_network_access_enabled" {
-  type = string
-  default = null
+  type        = string
+  default     = null
   description = "(Optional) Enable or Disable public network access for the container registry. Defaults to true."
 }
 
 variable "quarantine_policy_enabled" {
-  type = string
-  default = null
+  type        = string
+  default     = null
   description = "(Optional) Enable or Disable quarantine policy for the container registry. Defaults to false."
 }
 
 variable "zone_redundancy_enabled" {
-  type = string
-  default = null
+  type        = string
+  default     = null
   description = "(Optional) Enable or Disable zone redundancy for the container registry. Defaults to false."
 }
 
 variable "export_policy_enabled" {
-  type = string
-  default = null
+  type        = string
+  default     = null
   description = "(Optional) Enable or Disable export policy for the container registry. Defaults to false."
 }
 
 variable "anonymous_pull_enabled" {
-  type = string
-  default = null
+  type        = string
+  default     = null
   description = "(Optional) Enable or Disable anonymous pull for the container registry. Defaults to false."
 }
 
 variable "data_endpoint_enabled" {
-  type = string
-  default = null
+  type        = string
+  default     = null
   description = "(Optional) Enable or Disable data endpoint for the container registry. Defaults to false."
 }
 
 variable "network_rule_bypass_option" {
-  type = string
-  default = null
+  type        = string
+  default     = null
   description = "(Optional) Enable or Disable network rule bypass option for the container registry. Defaults to AzureServices."
 }
 
 variable "encryption" {
   type = object({
-    enabled         = bool
-    key_vault_key_id = string
+    enabled            = bool
+    key_vault_key_id   = string
     identity_client_id = string
   })
-  default = null
+  default     = null
   description = "(Optional) Enable or Disable encryption for the container registry. Defaults to false."
 }
 
@@ -118,7 +118,7 @@ variable "retention_policy" {
     days    = number
     enabled = bool
   })
-  default = null
+  default     = null
   description = "(Optional) Enable or Disable retention policy for the container registry. Defaults to false."
 }
 
@@ -127,7 +127,7 @@ variable "identity" {
     type = string
     ids  = list(string)
   })
-  default = null
+  default     = null
   description = "(Optional) Enable or Disable identity for the container registry. Defaults to false."
 }
 
@@ -135,17 +135,17 @@ variable "trust_policy" {
   type = object({
     enabled = bool
   })
-  default = null
+  default     = null
   description = "(Optional) Enable or Disable trust policy for the container registry. Defaults to false."
 }
 
 variable "georeplications" {
   type = object({
-    location = string
+    location                  = string
     regional_endpoint_enabled = bool
-    zone_redundancy_enabled = bool
+    zone_redundancy_enabled   = bool
   })
-  default = null
+  default     = null
   description = "(Optional) Enable or Disable georeplications for the container registry. Defaults to false."
 }
 
@@ -161,7 +161,7 @@ variable "network_rule_set" {
       subnet_id = string
     })
   })
-  default = null
+  default     = null
   description = "(Optional) Enable or Disable network rule set for the container registry. Defaults to false."
 }
 
