@@ -19,7 +19,6 @@ resource "azurerm_container_registry" "acr_obj" {
   dynamic "encryption" {
     for_each = var.encryption != null ? [var.encryption] : []
     content {
-      enabled            = var.encryption.enabled
       key_vault_key_id   = var.encryption.key_vault_key_id
       identity_client_id = var.encryption.identity_client_id
     }
@@ -65,10 +64,6 @@ resource "azurerm_container_registry" "acr_obj" {
       ip_rule = {
         action   = var.network_rule_set.ip_rule.action
         ip_range = var.network_rule_set.ip_rule.ip_range
-      }
-      virtual_network = {
-        action    = var.network_rule_set.virtual_network.action
-        subnet_id = var.network_rule_set.virtual_network.subnet_id
       }
     }
   }

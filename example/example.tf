@@ -132,10 +132,6 @@ module "azurerm_container_registry"  {
           action   = var.ip_rule_action
          ip_range = var.ip_rule_ip_range
      }
-     virtual_network =  {
-         action    = var.virtual_network_action
-         subnet_id = var.virtual_network_subnet_id
-     }
   }
  
   diag_object = {

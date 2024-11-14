@@ -43,11 +43,9 @@ variable "naming_convention_info" {
   description = "(Required) Specify the naming convention information to the resource."
   type = object({
     name         = string
-    project_code = string
-    agency_code  = string
+    site         = string
     env          = string
-    zone         = string
-    tier         = string
+    app          = string
   })
 }
 
@@ -105,7 +103,6 @@ variable "network_rule_bypass_option" {
 
 variable "encryption" {
   type = object({
-    enabled            = bool
     key_vault_key_id   = string
     identity_client_id = string
   })
@@ -155,10 +152,6 @@ variable "network_rule_set" {
     ip_rule = object({
       action   = string
       ip_range = string
-    })
-    virtual_network = object({
-      action    = string
-      subnet_id = string
     })
   })
   default     = null
